@@ -246,12 +246,12 @@ const VideoPlayer = () => {
                 value={playbackRate}
                 onChange={handlePlaybackRateChange}
               >
-                <option value="0.5">0.5x</option>
-                <option value="1.0" selected>
+                <option value={0.5}>0.5x</option>
+                <option value={1} selected>
                   1.0x (Normal)
                 </option>
-                <option value="1.5">1.5x</option>
-                <option value="2.0">2.0x</option>
+                <option value={1.5}>1.5x</option>
+                <option value={2}>2.0x</option>
               </select>
             </div>
             {/* Fullscreen button (optional) */}
