@@ -35,7 +35,7 @@ const VideoPlayer = () => {
       <div className="w-full flex justify-center">
         <h1 className="text-2xl font-bold">Video Player App</h1>
       </div>
-      <div className="h-full w-full md:grid md:gap-4 md:grid-cols-2 md:grid-rows-1 p-3">
+      <div className="h-full w-full md:grid md:gap-4 md:grid-cols-2 md:grid-rows-1 lg:grid lg:gap-4 lg:grid-cols-2 lg:grid-rows-1 p-3 xl:grid xl:gap-4 xl:grid-cols-31 xl:grid-rows-1">
         <div className="md:col-span-1">
           <video
             src={currentVideoData?.info?.sources}
