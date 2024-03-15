@@ -131,7 +131,6 @@ const VideoPlayer = () => {
   }, [isFullScreen, previousWidth, previousHeight]);
 
   const handleSearchChange = (event) => {
-    
     const searchTerm = event.target.value.toLowerCase(); // Ensure case-insensitive search
     setSearchText(searchTerm);
     console.log("sjhgdfidhcvgdshbknj", searchTerm);
@@ -240,18 +239,25 @@ const VideoPlayer = () => {
             </div>
             {/* Playback rate control */}
             <div className="ml-4 w-40 ">
-              <label htmlFor="playbackRate">speed:</label>
+              <label className="text-sm">speed:</label>
               <select
                 id="playbackRate"
+                className="text-sm"
                 value={playbackRate}
                 onChange={handlePlaybackRateChange}
               >
-                <option value={0.5}>0.5x</option>
-                <option value={1} selected>
+                <option className="text-sm" value={0.5}>
+                  0.5x
+                </option>
+                <option className="text-sm" value={1} selected>
                   1.0x (Normal)
                 </option>
-                <option value={1.5}>1.5x</option>
-                <option value={2}>2.0x</option>
+                <option className="text-sm" value={1.5}>
+                  1.5x
+                </option>
+                <option className="text-sm" value={2}>
+                  2.0x
+                </option>
               </select>
             </div>
             {/* Fullscreen button (optional) */}
