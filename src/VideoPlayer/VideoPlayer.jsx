@@ -16,6 +16,8 @@ const VideoPlayer = () => {
   const [volume, setVolume] = useState(0.5);
   const [playbackRate, setPlaybackRate] = useState(1);
   const [seekPosition, setSeekPosition] = useState(0);
+
+  const [searchText, setSearchText] = useState("");
   useEffect(() => {
     setVideoData(videosData);
   }, []);
@@ -107,12 +109,10 @@ const VideoPlayer = () => {
         // const videoHeight = videoRef.current.videoHeight;
         // const containerWidth = videoRef.current.parentElement.offsetWidth;
         // const containerHeight = videoRef.current.parentElement.offsetHeight;
-
         // // Calculate optimal scaling based on aspect ratio
         // const widthScale = containerWidth / videoWidth;
         // const heightScale = containerHeight / videoHeight;
         // const scale = Math.min(widthScale, heightScale); // Maintain aspect ratio
-
         // videoRef.current.style.transform = `scale(${scale})`;
       } else {
         if (previousWidth && previousHeight) {
@@ -129,6 +129,22 @@ const VideoPlayer = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [isFullScreen, previousWidth, previousHeight]);
+
+  const handleSearchChange = (event) => {
+    
+    const searchTerm = event.target.value.toLowerCase(); // Ensure case-insensitive search
+    setSearchText(searchTerm);
+    console.log("sjhgdfidhcvgdshbknj", searchTerm);
+
+    if (searchTerm != "") {
+      const filtered = videoData.filter((video) =>
+        video.title.toLowerCase().includes(searchTerm)
+      );
+      setVideoData(filtered);
+    } else {
+      setVideoData(videosData);
+    }
+  };
 
   return (
     <div className="h-v w-screen">
@@ -269,7 +285,14 @@ const VideoPlayer = () => {
             </h3>
           </div>
         </div>
-        <div className="md:col-span-0">
+        <div className="md:col-span-0 flex flex-col items-center">
+          <input
+            value={searchText}
+            onChange={handleSearchChange}
+            placeholder="search"
+            style={{ border: "1px solid black" }}
+            className="w-filter rounded-md h-10  border-1 border-black pl-3 border-solid"
+          />
           <PlayList
             data={videoData}
             setData={setVideoData}
