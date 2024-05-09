@@ -146,15 +146,15 @@ const VideoPlayer = () => {
   };
 
   return (
-    <div className="h-v w-screen">
-      <div className="w-full flex justify-center">
+    <div className="w-full" style={{fontFamily:'sans-serif',fontStyle:'oblique'}}>
+      <div className="w-full sticky top-0 bg-white flex justify-center py-3" style={{backgroundColor:'rgb(145 145 145)',color:'#fff'}}>
         <h1 className="text-2xl font-bold">Video Player App</h1>
       </div>
-      <div className="h-full w-full md:grid md:gap-4 md:grid-cols-2 md:grid-rows-1 lg:grid lg:gap-4 lg:grid-cols-2 lg:grid-rows-1 p-3 xl:grid xl:gap-4 xl:grid-cols-31 xl:grid-rows-1">
-        <div className="md:col-span-1">
+      <div className="lg:grid lg:grid-cols-3 gap-3 px-2" style={{marginTop:'10px'}}>
+        <div className="lg:col-span-2">
           <video
             src={currentVideoData?.info?.sources}
-            // controls
+            controls
             autoPlay
             width={"99%"}
             // height={"700px"}
@@ -190,17 +190,7 @@ const VideoPlayer = () => {
               });
             }}
           />
-          {/* <div className="rounded-md bg-slate-200 p-2 mt-2 text-start w-description">
-            <button onClick={togglePlayPause}>
-              {isPlay ? (
-                <Icon icon="fluent:pause-24-regular" height={30} width={30} />
-              ) : (
-                <Icon icon="fluent:play-24-regular" height={30} width={30} />
-              )}
-            </button>
-          </div> */}
-
-          <div className="w-description flex items-center justify-between p-1 gap-2 bg-slate-300 rounded-b-md">
+          {/* <div className="w-description flex items-center justify-between p-1 gap-2 bg-slate-300 rounded-b-md">
             <button onClick={togglePlayPause}>
               {isPlay ? (
                 <Icon icon="fluent:pause-24-regular" height={30} width={30} />
@@ -209,64 +199,62 @@ const VideoPlayer = () => {
               )}
             </button>
 
-            <div className="">
-              <h3 className="text-center text-sm">
-                {getFormattedTime(currentVideoTime)}/
-                {getFormattedTime(videoDuration)}
-              </h3>
-            </div>
+              <div className="">
+                <h3 className="text-center text-sm">
+                  {getFormattedTime(currentVideoTime)}/
+                  {getFormattedTime(videoDuration)}
+                </h3>
+              </div>
 
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={seekPosition} // Convert current time to range value (0-100)
-              onChange={handleSeeking}
-              className="ml-4 w-full" // Adjust width as needed
-            />
-
-            {/* Volume control */}
-            <div className="flex gap-1">
-              <h4 className="text-center text-sm">volume</h4>
               <input
                 type="range"
                 min="0"
                 max="100"
-                value={volume * 100}
-                onChange={handleVolumeChange}
-                className="w-14"
+                value={seekPosition} 
+                onChange={handleSeeking}
+                className="ml-4 w-full" 
               />
-            </div>
-            {/* Playback rate control */}
-            <div className="ml-4 w-40 ">
-              <label className="text-sm">speed:</label>
-              <select
-                id="playbackRate"
-                className="text-sm"
-                value={playbackRate}
-                onChange={handlePlaybackRateChange}
-              >
-                <option className="text-sm" value={0.5}>
-                  0.5x
-                </option>
-                <option className="text-sm" value={1} selected>
-                  1.0x (Normal)
-                </option>
-                <option className="text-sm" value={1.5}>
-                  1.5x
-                </option>
-                <option className="text-sm" value={2}>
-                  2.0x
-                </option>
-              </select>
-            </div>
-            {/* Fullscreen button (optional) */}
-            <button className="" onClick={toggleFullScreen}>
-              <Icon icon="fluent:page-fit-24-regular" height={30} width={30} />
-            </button>
-          </div>
 
-          {/* This is the end of the design  */}
+
+              <div className="flex gap-1">
+                <h4 className="text-center text-sm">volume</h4>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={volume * 100}
+                  onChange={handleVolumeChange}
+                  className="w-14"
+                />
+              </div>
+
+              <div className="ml-4 w-40 ">
+                <label className="text-sm">speed:</label>
+                <select
+                  id="playbackRate"
+                  className="text-sm"
+                  value={playbackRate}
+                  onChange={handlePlaybackRateChange}
+                >
+                  <option className="text-sm" value={0.5}>
+                    0.5x
+                  </option>
+                  <option className="text-sm" value={1} selected>
+                    1.0x (Normal)
+                  </option>
+                  <option className="text-sm" value={1.5}>
+                    1.5x
+                  </option>
+                  <option className="text-sm" value={2}>
+                    2.0x
+                  </option>
+                </select>
+              </div>
+
+              <button className="" onClick={toggleFullScreen}>
+                <Icon icon="fluent:page-fit-24-regular" height={30} width={30} />
+              </button>
+              </div> */}
 
           <div className="rounded-md bg-slate-200 p-3 mt-2 text-start w-description">
             <h3

@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       gridTemplateColumns: {
-        31: "3fr 1fr",
+        31: "2fr 1fr",
       },
       height: {
         v: "96.5vh",
-        mh: "49vh",
+        mh: "40vh",
       },
       width: {
         description: "99%",

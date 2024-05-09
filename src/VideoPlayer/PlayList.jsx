@@ -56,7 +56,7 @@ const PlayList = (props) => {
             onDragOver={(e) => e.preventDefault()}
           >
             <div className="flex items-center gap-3">
-              <h2 className="text-black-400 text-lg">{idx + 1}</h2>
+              <h2 className="text-base text-sm text-black-400 le:text-lg">{idx + 1}</h2>
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzvqzfNJ2P74SYkL42GG7D3Hfxrl5fEX8xH-SkWgiJag&s"
                 height={20}
@@ -64,7 +64,7 @@ const PlayList = (props) => {
                 alt="videos"
               />
               <div>
-                <h2 className="text-black-400 text-lg">{item?.title}</h2>
+                <h2 className="text-base lg:text-sm text-black-400 text-sm">{item?.title}</h2>
                 <h3 className="text-black-200 text-xs">{item?.subtitle}</h3>
               </div>
             </div>
